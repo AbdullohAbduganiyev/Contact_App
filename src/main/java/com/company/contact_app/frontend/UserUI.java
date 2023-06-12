@@ -1,5 +1,7 @@
 package com.company.contact_app.frontend;
 
+import com.company.contact_app.backend.service.UserService;
+import com.company.contact_app.backend.service.UserServiceImpl;
 import com.company.contact_app.frontend.util.ScannerUtil;
 
 public class UserUI {
@@ -25,14 +27,24 @@ public class UserUI {
     private static void callContact() {
         System.out.println("\nWho would you like to call?");
         String name = ScannerUtil.getInputAsString("Enter full name or username: ");
-        UserServise userServise = new UserServiseImpl();
-        userServise.findContact(name);
+        UserService userService = new UserServiceImpl();
+        userService.findNumber(name);
 
     }
 
     private static void saveContact() {
+        String name = ScannerUtil.getInputAsString("Enter name: ");
+        String phoneNumber = ScannerUtil.getInputAsString("Enter phone number: ");
+
+        UserService userService = new UserServiceImpl();
+        userService.saveContact(name,phoneNumber);
+
     }
 
     private static void findNumber() {
+        String name = ScannerUtil.getInputAsString("Enter name: ");
+
+        UserService userService = new UserServiceImpl();
+        userService.findNumber(name);
     }
 }
