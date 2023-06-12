@@ -1,7 +1,10 @@
 package com.company;
 
+import com.company.contact_app.frontend.UserUI;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        UserUI.window();
     }
 }
